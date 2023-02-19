@@ -41,7 +41,7 @@ describe('Checkout a product as logined user', () => {
         login.clickLoginButton();
         cy.pause();
 
-        // //Check Out Details
+        //Check Out Details
 
         // checkout.selectGuest();
         // checkout.firstName();
