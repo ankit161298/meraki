@@ -1,4 +1,7 @@
 class Home {
+    openUrl() {
+        return cy.visit('https://probuyerkart.com/');
+    }
     getProduct() {
         return cy.get('div.buttons-wrapper');
     }
@@ -12,6 +15,18 @@ class Home {
     }
     getCart() {
         return cy.get('div#cart');
+    }
+    clickProduct() {
+        return this.getProduct().first().click();
+    }
+    selectColor() {
+        return this.getIframeBody().find('span.option-value').first().click();
+    }
+    clickAddToCart() {
+        return this.getIframeBody().find('a#button-cart').click();
+    }
+    clickCart() {
+        return this.getCart().invoke('show').click();
     }
 }
 

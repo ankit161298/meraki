@@ -1,4 +1,6 @@
 {
+    "url": "https://probuyerkart.com/",
+    "checkoutUrl": "https://probuyerkart.com/?route=checkout/cart",
     "firstName": "Ankit",
     "lastName": "Singh",
     "email": "hello@cypress.io",

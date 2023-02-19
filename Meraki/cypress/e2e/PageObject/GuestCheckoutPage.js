@@ -47,6 +47,7 @@ class Checkout {
     getPlaceOrder() {
         return cy.get('#quick-checkout-button-confirm > span');
     }
+
     selectGuest() {
         return this.getGuest().check();
     }

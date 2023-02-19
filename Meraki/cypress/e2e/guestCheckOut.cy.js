@@ -10,20 +10,29 @@ describe('Checkout a product as a guest user', () => {
     const checkout = new Checkout();
     const addToCartDetailsPage = new AddToCartPage();
     before(() => {
-        cy.visit('https://probuyerkart.com/');
+        home.openUrl();
     })
 
     it('Ordering Product as Guest', () => {
-        home.getProduct().first().click();
+        // Selecting the First Product
+        home.clickProduct();
         cy.wait(4000);
-        home.getIframeBody().find('span.option-value').first().click();
-        home.getIframeBody().find('a#button-cart').click();
-        cy.wait(4000);
-        home.getCart().invoke('show').click();
-        cy.visit('https://probuyerkart.com/?route=checkout/cart');
-        addToCartDetailsPage.getCheckOut().click();
 
-        //Check Out Details
+        //Handling the PopUp Iframe
+        home.selectColor();
+        home.clickAddToCart();
+        cy.wait(4000);
+
+        //Clicking on cart
+        home.clickCart();
+
+        //Retircting to AddtoCart Page
+        addToCartDetailsPage.addToCartDetailsPage();
+
+        //Clicking on Checkout
+        addToCartDetailsPage.checkOut();
+
+        //Entering Guest Details
         checkout.selectGuest();
         checkout.firstName();
         checkout.lastName();
